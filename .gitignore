@@ -4,5 +4,8 @@
 # Ignore CSV files
 *.csv
 
+# Ignore json files
+*.json
+
 # Ignore environment variable files
 *.env
