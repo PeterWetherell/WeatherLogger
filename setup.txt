@@ -1,11 +1,15 @@
 add your API_KEY, LAT, and LON in a .env file
 
+run:
+crontab -e
 
-sudo service cron status
-# see the status of cron -- see if it is running or not
+and append to the end of the file:
+*/5 * * * * path/run_weather.sh >> path/weather_cron.log 2>1&
 
+You can then start cron with:
 sudo service cron start
-# start cron schedule manager
 
-# I could make it so that this runs on startup (.bashrc) but I don't want to -- I am scetched out by the possibility that I exceed my API usage limits
-# this is despite the fact that every 5 min = 288 != 1000 (free limit per day)
+To check if cron is currently running:
+sudo service cron status
+
+You can add the command to start cron in your .bashrc file to run on startup if you want.
