@@ -13,3 +13,6 @@ To check if cron is currently running:
 sudo service cron status
 
 You can add the command to start cron in your .bashrc file to run on startup if you want.
+if ! pgrep cron >/dev/null 2>&1; then
+    sudo service cron start
+fi
